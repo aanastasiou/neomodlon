@@ -25,7 +25,7 @@ def trim_string_at_unicode_boundaries(in_string, byte_limit):
     encoded_in_string = bytearray(in_string, "utf-8")
     if len(encoded_in_string) > byte_limit:
         i = byte_limit
-        while i>0 and not ((encoded_in_string[i] & 0xC0) != 0x80):
+        while i > 0 and not ((encoded_in_string[i] & 0xC0) != 0x80):
             i = i-1
         encoded_in_string = encoded_in_string[:i].decode("utf-8")
     return encoded_in_string
